@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: Reportes
+  profiles:
+    active: dev
+
+server:
+  port: 8086
