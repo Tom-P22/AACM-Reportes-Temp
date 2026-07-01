@@ -17,20 +17,40 @@ import java.time.LocalDate;
 public class DtoGenerarReporteRequest {
 
     @NotBlank(message = "El tipo de reporte (FINANCIERO, OCUPACION, etc.) es obligatorio.")
-    @Schema(description = "Categoría o módulo del reporte del sistema", example = "FINANCIERO")
+    @Schema(
+        description = "Categoría o módulo del reporte del sistema", 
+        example = "FINANCIERO", 
+        requiredMode = Schema.RequiredMode.REQUIRED
+    )
     private String tipoReporte;
 
     @NotNull(message = "La fecha de inicio para el rango de analítica es obligatoria.")
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Schema(description = "Fecha inicial del rango de búsqueda", example = "2026-01-01")
+    @Schema(
+        description = "Fecha inicial del rango de búsqueda", 
+        example = "2026-01-01", 
+        type = "string", 
+        format = "date", 
+        requiredMode = Schema.RequiredMode.REQUIRED
+    )
     private LocalDate fechaInicio;
 
     @NotNull(message = "La fecha de fin para el rango de analítica es obligatoria.")
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Schema(description = "Fecha límite del rango de búsqueda", example = "2026-01-31")
+    @Schema(
+        description = "Fecha límite del rango de búsqueda", 
+        example = "2026-01-31", 
+        type = "string", 
+        format = "date", 
+        requiredMode = Schema.RequiredMode.REQUIRED
+    )
     private LocalDate fechaFin;
 
     @NotBlank(message = "Debe especificar el nombre o ID del administrador que genera el reporte.")
-    @Schema(description = "Identificador o nombre del funcionario municipal que solicita la operación", example = "Admin_Juan")
+    @Schema(
+        description = "Identificador o nombre del funcionario municipal que solicita la operación", 
+        example = "Admin_Polideportivo", 
+        requiredMode = Schema.RequiredMode.REQUIRED
+    )
     private String generadoPor;
 }
